@@ -1,0 +1,82 @@
+@import '~@angular/material/theming';
+
+$btm-primary: (
+  50: #e4edf3,
+  100: #bdd1e0,
+  200: #91b3cc,
+  300: #6494b8,
+  400: #437da8,
+  500: #226699,
+  600: #1e5e91,
+  700: #195386,
+  800: #14497c,
+  900: #0c386b,
+  A100: #9dc6ff,
+  A200: #6aa8ff,
+  A400: #378aff,
+  A700: #1e7bff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$btm-accent: (
+  50: #fbe6e9,
+  100: #f5c0c7,
+  200: #ee97a2,
+  300: #e76d7c,
+  400: #e24d60,
+  500: #dd2e44,
+  600: #d9293e,
+  700: #d42335,
+  800: #cf1d2d,
+  900: #c7121f,
+  A100: #fff6f6,
+  A200: #ffc3c6,
+  A400: #ff9096,
+  A700: #ff767e,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$btm-font-family: 'Heebo, Roboto, "Helvetica Neue", sans-serif';
+$btm-typography-config: mat-typography-config(
+  $font-family: $btm-font-family
+);
+
+$btm-theme-primary: mat-palette($btm-primary);
+$btm-theme-accent: mat-palette($btm-accent);
+$btm-theme-warn: mat-palette($mat-red);
+
+$btm-theme: mat-light-theme(
+  $btm-theme-primary,
+  $btm-theme-accent,
+  $btm-theme-warn
+);

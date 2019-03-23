@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { MaterialModule } from './material/material.module';
+
 const SHARED_COMPONENTS = [];
 
 @NgModule({
@@ -12,6 +14,8 @@ const SHARED_COMPONENTS = [];
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    MaterialModule,
 
     ...SHARED_COMPONENTS
   ]

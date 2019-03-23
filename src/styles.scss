@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_theme';
+@import '_variables';
+
+@include mat-core($btm-typography-config);
+@include angular-material-theme($btm-theme);
