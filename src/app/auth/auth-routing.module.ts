@@ -7,7 +7,7 @@ const authRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-    // TODO: create auth guard
+    // TODO: create "no-auth" guard
   }
 ];
 

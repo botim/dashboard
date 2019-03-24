@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'reports',
+    loadChildren: './reports/reports.module#ReportsModule'
+  },
+  {
     path: '**',
     redirectTo: 'login'
   }

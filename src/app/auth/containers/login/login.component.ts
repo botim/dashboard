@@ -40,5 +40,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     // TODO: call api service and then navigate
+
+    this._router.navigateByUrl('/reports');
   }
 }

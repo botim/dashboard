@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 
-$btm-primary: (
+$btm-primary-palette: (
   50: #e4edf3,
   100: #bdd1e0,
   200: #91b3cc,
@@ -33,7 +33,7 @@ $btm-primary: (
   )
 );
 
-$btm-accent: (
+$btm-accent-palette: (
   50: #fbe6e9,
   100: #f5c0c7,
   200: #ee97a2,
@@ -71,8 +71,8 @@ $btm-typography-config: mat-typography-config(
   $font-family: $btm-font-family
 );
 
-$btm-theme-primary: mat-palette($btm-primary);
-$btm-theme-accent: mat-palette($btm-accent);
+$btm-theme-primary: mat-palette($btm-primary-palette);
+$btm-theme-accent: mat-palette($btm-accent-palette);
 $btm-theme-warn: mat-palette($mat-red);
 
 $btm-theme: mat-light-theme(
@@ -80,3 +80,6 @@ $btm-theme: mat-light-theme(
   $btm-theme-accent,
   $btm-theme-warn
 );
+
+$btm-primary: mat-color($btm-theme-primary);
+$btm-accent: mat-color($btm-theme-accent);

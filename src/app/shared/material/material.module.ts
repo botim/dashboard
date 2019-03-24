@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import {
+  MatToolbarModule,
   MatProgressBarModule,
   MatInputModule,
   MatCardModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatSidenavModule,
+  MatListModule
 } from '@angular/material';
 
 const MATERIAL_MODULES = [
+  MatToolbarModule,
   MatProgressBarModule,
   MatInputModule,
   MatCardModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatSidenavModule,
+  MatListModule
 ];
 
 @NgModule({
