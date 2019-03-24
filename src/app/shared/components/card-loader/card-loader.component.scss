@@ -1,0 +1,13 @@
+mat-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &[mode='indeterminate'] {
+    border-radius: 4px 4px 0 0;
+  }
+
+  &[mode='query'] {
+    border-radius: 0 0 4px 4px;
+  }
+}

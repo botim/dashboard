@@ -1,0 +1,17 @@
+@import '_theme';
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  width: 240px;
+  padding: 24px;
+}
+
+mat-form-field {
+  width: 100%;
+}

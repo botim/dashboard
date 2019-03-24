@@ -7,7 +7,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { MaterialModule } from './material/material.module';
 
-const SHARED_COMPONENTS = [];
+import { CardLoaderComponent } from './components';
+
+const SHARED_COMPONENTS = [CardLoaderComponent];
 
 @NgModule({
   declarations: [...SHARED_COMPONENTS],

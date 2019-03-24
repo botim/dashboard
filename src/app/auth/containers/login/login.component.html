@@ -1,0 +1,46 @@
+<mat-card class="mat-elevation-z5">
+  <btm-card-loader *ngIf="isLoading"></btm-card-loader>
+
+  <mat-card-content>
+    <form [formGroup]="form" novalidate (submit)="onLogin()">
+      <mat-form-field>
+        <input
+          matInput
+          [placeholder]="'INPUTS.USERNAME' | translate"
+          formControlName="username"
+        />
+
+        <mat-error *ngIf="form.get('username').invalid">
+          {{ 'ERRORS.USERNAME' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          [placeholder]="'INPUTS.PASSWORD' | translate"
+          formControlName="password"
+          [type]="hidePassword ? 'password' : 'text'"
+        />
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+          {{ hidePassword ? 'visibility' : 'visibility_off' }}
+        </mat-icon>
+
+        <mat-error *ngIf="form.get('password').invalid">
+          {{ 'ERRORS.PASSWORD' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="card-footer-buttons">
+        <button
+          type="submit"
+          mat-raised-button
+          color="accent"
+          [disabled]="isLoading"
+        >
+          {{ 'BUTTONS.LOGIN' | translate }}
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
