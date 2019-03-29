@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+
+import { TranslateService } from '@ngx-translate/core';
+
+import { FormGroupTyped, LoginForm } from '../../../core';
+
+import { AuthService } from '../../services';
 
 @Component({
   selector: 'btm-login',
@@ -9,10 +16,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public hidePassword = true;
-  public form: FormGroup;
+  public form: FormGroupTyped<LoginForm>;
   public isLoading = false;
 
-  constructor(private _fb: FormBuilder, private _router: Router) {}
+  constructor(
+    private _fb: FormBuilder,
+    private _router: Router,
+    private _authService: AuthService,
+    private _snackBar: MatSnackBar,
+    private _translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this._initForm();
@@ -39,8 +52,14 @@ export class LoginComponent implements OnInit {
 
     this.isLoading = true;
 
-    // TODO: call api service and then navigate
+    this._authService.login(this.form.value).subscribe(
+      () => this._router.navigateByUrl('/reports'),
+      () => {
+        const error = this._translate.instant('ERRORS.INVALID_LOGIN');
+        this._snackBar.open(error);
 
-    this._router.navigateByUrl('/reports');
+        this.isLoading = false;
+      }
+    );
   }
 }

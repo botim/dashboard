@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { translateLoaderFactory } from './factories';
+import { translateLoaderFactory, jwtOptionsFactory } from './factories';
 import { APP_CONFIG, APP_DI_CONFIG } from './app.config';
 
 @NgModule({
@@ -18,6 +19,13 @@ import { APP_CONFIG, APP_DI_CONFIG } from './app.config';
         provide: TranslateLoader,
         useFactory: translateLoaderFactory,
         deps: [HttpClient]
+      }
+    }),
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+        deps: []
       }
     })
   ],
