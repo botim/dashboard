@@ -6,6 +6,7 @@ export class FormGroupTyped<T> extends FormGroup {
   }
 }
 
+// TODO: move to some other file in the right place
 export interface LoginForm {
   email: string;
   password: string;

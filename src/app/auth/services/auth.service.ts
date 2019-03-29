@@ -6,7 +6,7 @@ import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
 import { User } from '../../models';
-import { LoginForm } from '../../core';
+import { LoginForm, TOKEN_STORAGE_KEY } from '../../core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -24,7 +24,7 @@ export class AuthService {
           const { token, user } = response;
 
           this._user.next(user);
-          localStorage.setItem('access_token', token);
+          localStorage.setItem(TOKEN_STORAGE_KEY, token);
         })
       );
   }
