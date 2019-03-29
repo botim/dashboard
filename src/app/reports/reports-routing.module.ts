@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from '../auth/services';
+
 import { ReportsComponent } from './containers';
 
 const reportsRoutes: Routes = [
   {
     path: '',
-    component: ReportsComponent
-    // TODO: create auth guard
+    component: ReportsComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard]
   }
 ];
 
