@@ -6,6 +6,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { translateLoaderFactory } from './factories';
+import { APP_CONFIG, APP_DI_CONFIG } from './app.config';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { translateLoaderFactory } from './factories';
       }
     })
   ],
-  exports: [TranslateModule]
+  exports: [TranslateModule],
+  providers: [{ provide: APP_CONFIG, useValue: APP_DI_CONFIG }]
 })
 export class CoreModule {
   constructor(

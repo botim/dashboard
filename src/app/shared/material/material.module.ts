@@ -7,8 +7,12 @@ import {
   MatIconModule,
   MatButtonModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS
 } from '@angular/material';
+
+import { APP_DI_CONFIG } from '../../core';
 
 const MATERIAL_MODULES = [
   MatToolbarModule,
@@ -18,11 +22,18 @@ const MATERIAL_MODULES = [
   MatIconModule,
   MatButtonModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
   imports: MATERIAL_MODULES,
-  exports: MATERIAL_MODULES
+  exports: MATERIAL_MODULES,
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: APP_DI_CONFIG.snackBar
+    }
+  ]
 })
 export class MaterialModule {}

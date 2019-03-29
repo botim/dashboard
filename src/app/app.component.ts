@@ -1,6 +1,8 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Inject } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
+
+import { APP_CONFIG, AppConfig } from './core';
 
 @Component({
   selector: 'btm-root',
@@ -10,7 +12,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   @HostBinding('class') classes = 'mat-typography';
 
-  constructor(translate: TranslateService) {
-    translate.use('he');
+  constructor(
+    @Inject(APP_CONFIG) config: AppConfig,
+    translate: TranslateService
+  ) {
+    translate.use(config.defaultLanguage);
   }
 }
