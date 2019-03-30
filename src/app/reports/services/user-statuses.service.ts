@@ -17,7 +17,7 @@ export class UserStatusesService {
   public list(page: number = 0, order?: string, sort?: string, filters?: any) {
     return this._http
       .get<Pagination<UserStatus>>(`${environment.apiUrl}/statuses`, {
-        params: { page: `${page}`, order, sort, ...filters }
+        params: { page: `${page}`, order, sort: sort.toUpperCase(), ...filters }
       })
       .subscribe(response => {
         const userStatuses = { ...response };
