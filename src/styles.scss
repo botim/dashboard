@@ -3,3 +3,5 @@
 
 @include mat-core($btm-typography-config);
 @include angular-material-theme($btm-theme);
+
+@import '_global';

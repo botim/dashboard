@@ -35,6 +35,6 @@ mat-sidenav-container {
 
 mat-nav-list {
   a.active {
-    background-color: lighten($btm-primary, 40%);
+    background-color: $btm-accent;
   }
 }
