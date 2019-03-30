@@ -28,6 +28,7 @@ const SHARED_PIPES = [MacroCasePipe];
     RouterModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
 
     TranslateModule,
     MaterialModule

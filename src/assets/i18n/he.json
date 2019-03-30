@@ -15,5 +15,11 @@
   "NAV": {
     "REPORTS": "רשימת דיווחים",
     "LOGOUT": "יציאה"
+  },
+  "FILTER": {
+    "SELECT_NONE": "ללא סינון",
+    "NO_RESULTS": "לא נמצאו תוצאות לסינון המבוקש",
+    "PLATFORM": "רשת",
+    "STATUS": "סטטוס"
   }
 }

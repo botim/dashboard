@@ -9,7 +9,8 @@ import {
   MatSidenavModule,
   MatListModule,
   MatSnackBarModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSelectModule
 } from '@angular/material';
 
 import { APP_DI_CONFIG } from '../../core';
@@ -23,7 +24,8 @@ const MATERIAL_MODULES = [
   MatButtonModule,
   MatSidenavModule,
   MatListModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSelectModule
 ];
 
 @NgModule({
