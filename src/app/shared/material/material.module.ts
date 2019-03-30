@@ -10,10 +10,14 @@ import {
   MatListModule,
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatPaginatorModule,
+  MatPaginatorIntl,
   MatSelectModule
 } from '@angular/material';
 
 import { APP_DI_CONFIG } from '../../core';
+
+import { TablePaginatorIntl } from './table-paginator-intl';
 
 const MATERIAL_MODULES = [
   MatToolbarModule,
@@ -25,6 +29,7 @@ const MATERIAL_MODULES = [
   MatSidenavModule,
   MatListModule,
   MatSnackBarModule,
+  MatPaginatorModule,
   MatSelectModule
 ];
 
@@ -35,7 +40,8 @@ const MATERIAL_MODULES = [
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: APP_DI_CONFIG.snackBar
-    }
+    },
+    { provide: MatPaginatorIntl, useClass: TablePaginatorIntl }
   ]
 })
 export class MaterialModule {}

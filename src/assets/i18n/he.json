@@ -16,6 +16,14 @@
     "REPORTS": "רשימת דיווחים",
     "LOGOUT": "יציאה"
   },
+  "PAGINATOR": {
+    "ITEMS_PER_PAGE": "כמות פריטים בעמוד:",
+    "NEXT_PAGE": "עמוד הבא",
+    "PREVIOUS_PAGE": "עמוד קודם",
+    "FIRST_PAGE_LABEL": "עמוד ראשון",
+    "LAST_PAGE_LABEL": "עמוד אחרון",
+    "OF": "מתוך"
+  },
   "FILTER": {
     "SELECT_NONE": "ללא סינון",
     "NO_RESULTS": "לא נמצאו תוצאות לסינון המבוקש",
