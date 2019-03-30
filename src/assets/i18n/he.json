@@ -29,5 +29,39 @@
     "NO_RESULTS": "לא נמצאו תוצאות לסינון המבוקש",
     "PLATFORM": "רשת",
     "STATUS": "סטטוס"
+  },
+  "PLATFORM": {
+    "TWITTER": "טוויטר",
+    "FACEBOOK": "פייסבוק"
+  },
+  "REASON": {
+    "BOT": "בוט",
+    "FAKE": "מזויף",
+    "VIOLENCE": "אלים"
+  },
+  "STATUS": {
+    "REPORTED": "דווח",
+    "IN_PROCESS": "בבדיקה",
+    "BOT": "בוט",
+    "NOT_BOT": "לא בוט",
+    "DUPLICATE": "כפילות"
+  },
+  "USER_STATUS": {
+    "ID": "#",
+    "PLATFORM": "רשת",
+    "USER_ID": "מזהה משתמש",
+    "USERNAME": "שם משתמש",
+    "POST_ID": "מזהה פוסט",
+    "COMMENT_ID": "מזהה תגובה",
+    "REPLY_COMMENT_ID": "מזהה תגובה לתגובה",
+    "REASONS": "סיבות",
+    "STATUS": "סטטוס",
+    "DESCRIPTION": "תיאור נוסף",
+    "REPORTED_AT": "תאריך דיווח",
+    "ACTIONS": ""
+  },
+  "REPORTS": {
+    "VIEW_SOURCE": "צפייה",
+    "VIEW_DETAILS": "פרטים נוספים"
   }
 }

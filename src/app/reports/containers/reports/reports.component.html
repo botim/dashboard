@@ -1,1 +1,72 @@
-<btm-layout></btm-layout>
+<btm-layout>
+  <form [formGroup]="filtersForm" class="filters">
+    <btm-filter-select
+      [parent]="filtersForm"
+      controlName="status"
+      [options]="filterStatuses"
+    ></btm-filter-select>
+
+    <btm-filter-select
+      [parent]="filtersForm"
+      controlName="platform"
+      [options]="filterPlatforms"
+    ></btm-filter-select>
+  </form>
+
+  <div class="table-container mat-elevation-z2">
+    <table
+      mat-table
+      [dataSource]="(userStatuses$ | async)?.items"
+      multiTemplateDataRows
+      matSort
+      [matSortActive]="defaultOrder || ''"
+      [matSortDirection]="defaultSort || ''"
+      matSortDisableClear
+    >
+      <ng-container
+        *ngFor="let column of displayedColumns; last as isLast"
+        [matColumnDef]="isLast ? '' : column"
+      >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ 'USER_STATUS.' + (column | macrocase) | translate }}
+        </th>
+        <td mat-cell *matCellDef="let userStatus">
+          {{ renderColumn(column, userStatus) }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let userStatus">
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="viewReportSource(userStatus, $event)"
+          >
+            {{ 'REPORTS.VIEW_SOURCE' | translate }}
+          </button>
+
+          <button mat-stroked-button color="primary">
+            {{ 'REPORTS.VIEW_DETAILS' | translate }}
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr
+        mat-row
+        *matRowDef="let userStatus; columns: displayedColumns"
+        (click)="editUserStatus(userStatus)"
+      ></tr>
+    </table>
+
+    <div *ngIf="(userStatuses$ | async)?.total === 0" class="no-results">
+      {{ 'FILTER.NO_RESULTS' | translate }}
+    </div>
+
+    <mat-paginator
+      [length]="(userStatuses$ | async)?.total"
+      [pageSizeOptions]="[25]"
+    ></mat-paginator>
+  </div>
+</btm-layout>

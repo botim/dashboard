@@ -11,3 +11,9 @@ export interface LoginForm {
   email: string;
   password: string;
 }
+
+export interface Pagination<T> {
+  items: T[];
+  perPage: number;
+  total: number;
+}

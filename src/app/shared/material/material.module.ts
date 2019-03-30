@@ -10,8 +10,10 @@ import {
   MatListModule,
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatTableModule,
   MatPaginatorModule,
   MatPaginatorIntl,
+  MatSortModule,
   MatSelectModule
 } from '@angular/material';
 
@@ -29,7 +31,9 @@ const MATERIAL_MODULES = [
   MatSidenavModule,
   MatListModule,
   MatSnackBarModule,
+  MatTableModule,
   MatPaginatorModule,
+  MatSortModule,
   MatSelectModule
 ];
 
