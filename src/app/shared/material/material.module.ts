@@ -11,6 +11,8 @@ import {
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
   MatTableModule,
+  MatDialogModule,
+  MAT_DIALOG_DEFAULT_OPTIONS,
   MatPaginatorModule,
   MatPaginatorIntl,
   MatSortModule,
@@ -32,6 +34,7 @@ const MATERIAL_MODULES = [
   MatListModule,
   MatSnackBarModule,
   MatTableModule,
+  MatDialogModule,
   MatPaginatorModule,
   MatSortModule,
   MatSelectModule
@@ -45,6 +48,7 @@ const MATERIAL_MODULES = [
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: APP_DI_CONFIG.snackBar
     },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: APP_DI_CONFIG.dialog },
     { provide: MatPaginatorIntl, useClass: TablePaginatorIntl }
   ]
 })
