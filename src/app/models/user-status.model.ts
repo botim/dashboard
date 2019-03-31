@@ -1,4 +1,4 @@
-import { FACEBOOK_URL, TWITTER_TWEET_URL } from '../core';
+import { FACEBOOK_URL, TWITTER_TWEET_URL, TWITTER_USER_URL } from '../core';
 
 export enum Platform {
   TWITTER = 'TWITTER',
@@ -44,6 +44,16 @@ export class UserStatus {
     );
 
     this._reportedAt = `${day}-${month}-${year} ${hour}:${minute}`;
+  }
+
+  get userUrl(): string {
+    if (this.platform === Platform.FACEBOOK) {
+      return `${FACEBOOK_URL}/${this.userId}`;
+    }
+
+    if (this.platform === Platform.TWITTER) {
+      return `${TWITTER_USER_URL}=${this.userId}`;
+    }
   }
 
   get postUrl(): string {
