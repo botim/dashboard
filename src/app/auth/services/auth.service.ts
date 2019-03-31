@@ -5,25 +5,25 @@ import { tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 
-import { User } from '../../models';
+import { Admin } from '../../models';
 import { LoginForm, TOKEN_STORAGE_KEY } from '../../core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private _user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  private _admin: BehaviorSubject<Admin> = new BehaviorSubject<Admin>(null);
 
-  public user$ = this._user.asObservable();
+  public admin$ = this._admin.asObservable();
 
   constructor(private _http: HttpClient) {}
 
   public login(loginParams: LoginForm) {
     return this._http
-      .post<User[]>(`${environment.apiUrl}/auth/login`, loginParams)
+      .post<Admin[]>(`${environment.apiUrl}/auth/login`, loginParams)
       .pipe(
         tap((response: any) => {
-          const { token, user } = response;
+          const { token, admin } = response;
 
-          this._user.next(user);
+          this._admin.next(admin);
           localStorage.setItem(TOKEN_STORAGE_KEY, token);
         })
       );
