@@ -2,7 +2,10 @@
   <mat-label>{{ 'FILTER.' + (controlName | macrocase) | translate }}</mat-label>
 
   <mat-select [formControlName]="controlName">
-    <mat-option value="">{{ 'FILTER.SELECT_NONE' | translate }}</mat-option>
+    <mat-option value="" *ngIf="showNoneOption">
+      {{ 'FILTER.SELECT_NONE' | translate }}
+    </mat-option>
+
     <mat-option *ngFor="let option of options" [value]="option">
       {{ (controlName | macrocase) + '.' + option | translate }}
     </mat-option>

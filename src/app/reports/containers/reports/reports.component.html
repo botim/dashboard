@@ -1,16 +1,16 @@
 <btm-layout>
   <form [formGroup]="filtersForm" class="filters">
-    <btm-filter-select
+    <btm-select-input
       [parent]="filtersForm"
       controlName="status"
       [options]="filterStatuses"
-    ></btm-filter-select>
+    ></btm-select-input>
 
-    <btm-filter-select
+    <btm-select-input
       [parent]="filtersForm"
       controlName="platform"
       [options]="filterPlatforms"
-    ></btm-filter-select>
+    ></btm-select-input>
   </form>
 
   <div class="table-container mat-elevation-z2">

@@ -10,14 +10,14 @@ import { MaterialModule } from './material/material.module';
 import {
   LayoutComponent,
   CardLoaderComponent,
-  FilterSelectComponent
+  SelectInputComponent
 } from './components';
 import { MacroCasePipe } from './pipes';
 
 const SHARED_COMPONENTS = [
   LayoutComponent,
   CardLoaderComponent,
-  FilterSelectComponent
+  SelectInputComponent
 ];
 
 const SHARED_PIPES = [MacroCasePipe];
