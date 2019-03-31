@@ -1,0 +1,29 @@
+@import '_theme';
+
+.mat-dialog-title {
+  color: $btm-primary;
+}
+
+.mat-dialog-content form {
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+  grid-gap: 4px;
+  padding: 0 0 8px;
+
+  div:nth-child(odd) {
+    font-weight: bold;
+  }
+
+  a {
+    float: left;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    padding-top: 0;
+    border-top: 0;
+
+    label {
+      display: none;
+    }
+  }
+}

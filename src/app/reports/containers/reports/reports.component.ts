@@ -6,16 +6,21 @@ import {
   OnInit
 } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MatDialog, MatPaginator, MatSort } from '@angular/material';
+import {
+  MatDialog,
+  MatPaginator,
+  MatSort,
+  MatSnackBar
+} from '@angular/material';
 import { merge, Subscription } from 'rxjs';
-import { startWith } from 'rxjs/operators';
+import { startWith, take } from 'rxjs/operators';
 
 import { TranslateService } from '@ngx-translate/core';
 
 import { UserStatus, Status, Platform } from '../../../models';
 
 import { UserStatusesService } from '../../services/user-statuses.service';
-// import { EditUserStatusDialog } from '../edit-user-status/edit-user-status.component';
+import { EditUserStatusDialog } from '../edit-user-status/edit-user-status.component';
 
 @Component({
   selector: 'btm-reports',
@@ -53,7 +58,8 @@ export class ReportsComponent implements OnInit, AfterViewInit, OnDestroy {
     private _userStatusesService: UserStatusesService,
     private _translate: TranslateService,
     private _dialog: MatDialog,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -70,17 +76,7 @@ export class ReportsComponent implements OnInit, AfterViewInit, OnDestroy {
       this.filtersForm.valueChanges
     )
       .pipe(startWith(() => {}))
-      .subscribe(() => {
-        const { pageIndex } = this.paginator;
-        const { active, direction } = this.sort;
-
-        this._userStatusesService.list(
-          pageIndex,
-          active || this.defaultOrder,
-          direction || this.defaultSort,
-          this.filtersForm.value
-        );
-      });
+      .subscribe(() => this._refreshTable());
   }
 
   ngOnDestroy() {
@@ -119,6 +115,41 @@ export class ReportsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public editUserStatus(userStatus: UserStatus) {
-    // this._dialog.open(EditUserStatusDialog, { data: userStatus });
+    const dialog = this._dialog.open(EditUserStatusDialog, {
+      data: userStatus
+    });
+
+    dialog
+      .afterClosed()
+      .pipe(take(1))
+      .subscribe(({ status }) => {
+        if (status && status !== userStatus.status) {
+          this._updateUserStatus(userStatus.id, status);
+        }
+      });
+  }
+
+  private _updateUserStatus(userStatusId: number, status: Status) {
+    this._userStatusesService.update(userStatusId, { status }).subscribe(
+      () => this._refreshTable(),
+      () => {
+        const updateStatusFailed = this._translate.instant(
+          'ERRORS.UPDATE_STATUS_FAILED'
+        );
+        this._snackBar.open(updateStatusFailed);
+      }
+    );
+  }
+
+  private _refreshTable() {
+    const { pageIndex } = this.paginator;
+    const { active, direction } = this.sort;
+
+    this._userStatusesService.list(
+      pageIndex,
+      active || this.defaultOrder,
+      direction || this.defaultSort,
+      this.filtersForm.value
+    );
   }
 }

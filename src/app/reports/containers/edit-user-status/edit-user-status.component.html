@@ -1,0 +1,88 @@
+<h1 mat-dialog-title>
+  {{ 'REPORTS.USER_REPORT' | translate: { username: userStatus?.username } }}
+</h1>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form">
+    <div>{{ 'USER_STATUS.PLATFORM' | translate }}</div>
+    <div>{{ 'PLATFORM.' + userStatus?.platform | translate }}</div>
+
+    <div>{{ 'USER_STATUS.USER_ID' | translate }}</div>
+    <div>
+      {{ userStatus?.userId }}
+
+      <a [href]="userStatus?.userUrl" target="_blank">
+        {{ 'REPORTS.VIEW_SOURCE' | translate }}
+      </a>
+    </div>
+
+    <div>{{ 'USER_STATUS.USERNAME' | translate }}</div>
+    <div>{{ userStatus?.username }}</div>
+
+    <div>{{ 'USER_STATUS.POST_ID' | translate }}</div>
+    <div>
+      {{ userStatus?.postId }}
+
+      <a [href]="userStatus?.postUrl" target="_blank">
+        {{ 'REPORTS.VIEW_SOURCE' | translate }}
+      </a>
+    </div>
+
+    <ng-container *ngIf="userStatus?.commentId">
+      <div>{{ 'USER_STATUS.COMMENT_ID' | translate }}</div>
+      <div>
+        {{ userStatus?.commentId }}
+
+        <a [href]="userStatus?.commentUrl" target="_blank">
+          {{ 'REPORTS.VIEW_SOURCE' | translate }}
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="userStatus?.replyCommentId">
+      <div>{{ 'USER_STATUS.REPLY_COMMENT_ID' | translate }}</div>
+      <div>
+        {{ userStatus?.replyCommentId }}
+
+        <a [href]="userStatus?.replyCommentUrl" target="_blank">
+          {{ 'REPORTS.VIEW_SOURCE' | translate }}
+        </a>
+      </div>
+    </ng-container>
+
+    <div>{{ 'USER_STATUS.REASONS' | translate }}</div>
+    <div>
+      <ng-container *ngFor="let reason of userStatus?.reasons; last as isLast">
+        {{ 'REASON.' + reason | translate }}{{ isLast ? '' : ',' }}
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="userStatus?.description">
+      <div>{{ 'USER_STATUS.DESCRIPTION' | translate }}</div>
+      <div>{{ userStatus?.description }}</div>
+    </ng-container>
+
+    <div>{{ 'USER_STATUS.REPORTED_AT' | translate }}</div>
+    <div>{{ userStatus?.reportedAt }}</div>
+
+    <div>{{ 'USER_STATUS.STATUS' | translate }}</div>
+    <div>
+      <btm-select-input
+        [parent]="form"
+        controlName="status"
+        [options]="filterStatuses"
+        [selected]="userStatus?.status"
+        [showNoneOption]="false"
+      ></btm-select-input>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button color="primary" mat-raised-button (click)="updateStatus()">
+    {{ 'BUTTONS.UPDATE' | translate }}
+  </button>
+  <button mat-button mat-dialog-close>
+    {{ 'BUTTONS.CLOSE' | translate }}
+  </button>
+</mat-dialog-actions>

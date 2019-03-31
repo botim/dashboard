@@ -29,4 +29,11 @@ export class UserStatusesService {
         this._userStatuses.next(userStatuses);
       });
   }
+
+  public update(id: number, updatedUserStatus: Partial<UserStatus>) {
+    return this._http.put(
+      `${environment.apiUrl}/statuses/${id}`,
+      updatedUserStatus
+    );
+  }
 }

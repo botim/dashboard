@@ -5,12 +5,15 @@
     "PASSWORD": "סיסמה"
   },
   "BUTTONS": {
-    "LOGIN": "התחבר"
+    "LOGIN": "התחבר",
+    "UPDATE": "עדכן",
+    "CLOSE": "סגור"
   },
   "ERRORS": {
     "USERNAME": "שם המשתמש איננו תקין",
     "PASSWORD": "הסיסמה איננה תקין",
-    "INVALID_LOGIN": "שם המשתמש או הסיסמה אינם נכונים"
+    "INVALID_LOGIN": "שם המשתמש או הסיסמה אינם נכונים",
+    "UPDATE_STATUS_FAILED": "לא ניתן לעדכן את הסטטוס, אנא נסה שנית מאוחר יותר"
   },
   "NAV": {
     "REPORTS": "רשימת דיווחים",
@@ -61,6 +64,7 @@
     "ACTIONS": ""
   },
   "REPORTS": {
+    "USER_REPORT": "דיווחים על {{username}}",
     "VIEW_SOURCE": "צפייה",
     "VIEW_DETAILS": "פרטים נוספים"
   }
