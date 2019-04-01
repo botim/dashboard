@@ -38,10 +38,11 @@ export class ReportsComponent implements OnInit, AfterViewInit, OnDestroy {
     'username',
     'reasons',
     'status',
+    'description',
     'reportedAt',
     'actions'
   ];
-  public defaultOrder = 'reportedAt';
+  public defaultOrder = 'id';
   public defaultSort = 'asc';
   public filtersForm: FormGroup;
   public filterStatuses = [
