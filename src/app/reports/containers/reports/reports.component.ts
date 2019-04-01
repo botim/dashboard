@@ -76,7 +76,17 @@ export class ReportsComponent implements OnInit, AfterViewInit, OnDestroy {
       this.filtersForm.valueChanges
     )
       .pipe(startWith(() => {}))
-      .subscribe(() => this._refreshTable());
+      .subscribe((result: any) => {
+        // go to first page if filter/sort changed
+        if (
+          result.hasOwnProperty('status') ||
+          result.hasOwnProperty('active')
+        ) {
+          this.paginator.pageIndex = 0;
+        }
+
+        this._refreshTable();
+      });
   }
 
   ngOnDestroy() {
