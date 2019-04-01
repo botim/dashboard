@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "ng serve --open",
+    "build": "ng build --prod",
     "format": "prettier --write \"src/**/*.{ts,js,json,html,scss}\"",
     "lint": "ng lint"
   },
