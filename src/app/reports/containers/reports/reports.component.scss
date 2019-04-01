@@ -6,6 +6,39 @@
 
 table {
   width: 100%;
+
+  .mat-column-id {
+    width: 5%;
+  }
+
+  .mat-column-platform {
+    width: 6%;
+  }
+
+  .mat-column-username {
+    width: 10%;
+  }
+
+  .mat-column-reasons {
+    width: 9%;
+  }
+
+  .mat-column-status {
+    width: 5%;
+  }
+
+  .mat-column-description {
+    width: 33%;
+    padding: 8px;
+  }
+
+  .mat-column-reportedAt {
+    width: 9%;
+  }
+
+  .mat-column-actions {
+    text-align: left;
+  }
 }
 
 tr {
@@ -16,15 +49,6 @@ tr {
   button:not(:last-child) {
     margin-left: 8px;
   }
-}
-
-.mat-column-actions {
-  max-width: 200px;
-  text-align: left;
-}
-
-.mat-column-description {
-  max-width: 320px;
 }
 
 .filters {
