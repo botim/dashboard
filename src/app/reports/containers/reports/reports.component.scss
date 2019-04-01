@@ -19,7 +19,12 @@ tr {
 }
 
 .mat-column-actions {
+  max-width: 200px;
   text-align: left;
+}
+
+.mat-column-description {
+  max-width: 320px;
 }
 
 .filters {

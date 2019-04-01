@@ -10,7 +10,11 @@
   grid-gap: 4px;
   padding: 0 0 8px;
 
-  div:nth-child(odd) {
+  > div {
+    max-width: 320px;
+  }
+
+  > div:nth-child(odd) {
     font-weight: bold;
   }
 
