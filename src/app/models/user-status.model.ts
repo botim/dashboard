@@ -67,13 +67,13 @@ export class UserStatus {
   }
 
   get commentUrl(): string {
-    if (this.platform === Platform.FACEBOOK) {
+    if (this.platform === Platform.FACEBOOK && this.commentId) {
       return `${FACEBOOK_URL}/${this.commentId}`;
     }
   }
 
   get replyCommentUrl(): string {
-    if (this.platform === Platform.FACEBOOK) {
+    if (this.platform === Platform.FACEBOOK && this.replyCommentId) {
       return `${FACEBOOK_URL}/${this.replyCommentId}`;
     }
   }
