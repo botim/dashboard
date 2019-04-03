@@ -30,10 +30,15 @@ export class UserStatusesService {
       });
   }
 
-  public update(id: number, updatedUserStatus: Partial<UserStatus>) {
-    return this._http.put(
-      `${environment.apiUrl}/statuses/${id}`,
-      updatedUserStatus
-    );
+  public update(
+    id: number,
+    updatedUserStatus: Partial<UserStatus>,
+    comment: string
+  ) {
+    const { status } = updatedUserStatus;
+    return this._http.put(`${environment.apiUrl}/statuses/${id}`, {
+      status,
+      comment
+    });
   }
 }

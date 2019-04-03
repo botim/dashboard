@@ -133,23 +133,29 @@ export class ReportsComponent implements OnInit, AfterViewInit, OnDestroy {
     dialog
       .afterClosed()
       .pipe(take(1))
-      .subscribe(({ status }) => {
+      .subscribe(({ status, comment }) => {
         if (status && status !== userStatus.status) {
-          this._updateUserStatus(userStatus.id, status);
+          this._updateUserStatus(userStatus.id, status, comment);
         }
       });
   }
 
-  private _updateUserStatus(userStatusId: number, status: Status) {
-    this._userStatusesService.update(userStatusId, { status }).subscribe(
-      () => this._refreshTable(),
-      () => {
-        const updateStatusFailed = this._translate.instant(
-          'ERRORS.UPDATE_STATUS_FAILED'
-        );
-        this._snackBar.open(updateStatusFailed);
-      }
-    );
+  private _updateUserStatus(
+    userStatusId: number,
+    status: Status,
+    comment: string
+  ) {
+    this._userStatusesService
+      .update(userStatusId, { status }, comment)
+      .subscribe(
+        () => this._refreshTable(),
+        () => {
+          const updateStatusFailed = this._translate.instant(
+            'ERRORS.UPDATE_STATUS_FAILED'
+          );
+          this._snackBar.open(updateStatusFailed);
+        }
+      );
   }
 
   private _refreshTable() {

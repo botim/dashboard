@@ -75,6 +75,13 @@
         [showNoneOption]="false"
       ></btm-select-input>
     </div>
+
+    <ng-container>
+      <div>{{ 'USER_STATUS.REPORT_COMMENT' | translate }}</div>
+      <mat-form-field>
+        <input matInput formControlName="comment" />
+      </mat-form-field>
+    </ng-container>
   </form>
 </mat-dialog-content>
 

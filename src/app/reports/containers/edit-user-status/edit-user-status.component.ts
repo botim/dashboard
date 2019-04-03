@@ -26,7 +26,8 @@ export class EditUserStatusDialog implements OnInit {
 
   ngOnInit() {
     this.form = this._fb.group({
-      status: [this.userStatus.status]
+      status: [this.userStatus.status],
+      comment: ''
     });
   }
 
